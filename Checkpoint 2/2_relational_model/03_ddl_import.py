@@ -117,10 +117,10 @@ for i, row in countries.iterrows():
     }
     countries_list.append(country_entry)
 
-session.bulk_insert_mappings(Country, countries_list) # Bulk insert
+session.bulk_insert_mappings(Country, countries_list) # Bulk insert nam omogućuje brzo umetanje velikog broja redaka odjednom
 session.commit() 
 
-country_map = {c.name: c.id for c in session.query(Country).all()} # Stvori mapiranje zemalja koje će nam trebati kasnije za strane ključeve
+country_map = {c.name: c.id for c in session.query(Country).all()} # Stvori mapiranje zemalja koje će nam trebati kasnije za strane ključeve (povezuje ime zemlje sa njenim IDjem)
 
 # **2. Umetanje načina dostave**
 ship_modes = df[['ship_mode']].drop_duplicates().rename(columns={'ship_mode': 'name'}) # Dohvatimo jedinstvene načine dostave
