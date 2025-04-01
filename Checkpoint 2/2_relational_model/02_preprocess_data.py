@@ -1,8 +1,6 @@
 import pandas as pd
 
-
 # 2. Skripta za predprocesiranje skupa podataka
-
 
 # Određivanje putanje do CSV datoteke
 CSV_FILE_PATH = "Checkpoint 1\SuperStoreOrders.csv"
@@ -12,9 +10,8 @@ df = pd.read_csv(CSV_FILE_PATH, delimiter=',')
 print("CSV size before: ", df.shape)
 
 # Na temelju analize iz Checkpointa 1, znamo da nema nedostajućih vrijednosti
-# ali potrebno je napraviti ostale korake predprocesiranja
-
 # Iz analize vidimo da nemamo nedostajućih vrijednosti pa nije potrebno koristiti dropna()
+
 # Možemo pretvoriti 'sales' iz string u float za lakšu analizu
 df['sales'] = df['sales'].str.replace(',', '').astype(float)
 

@@ -105,8 +105,8 @@ session = Session() # Otvori novu sesiju
 # --------------------------------------------------------------
 
 # **1. Umetanje zemalja**
-countries = df[['country', 'region', 'market']].drop_duplicates('country') # Dohvatimo jedinstvene zemlje
-countries_list = []
+countries = df[['country', 'region', 'market']].drop_duplicates('country') # Dohvatimo jedinstvene zemlje jer nema smisla duplicirati iste zemlje u tablici
+countries_list = [] # lista rječnika svaki rječnik predstavlja jedan redak u tablici
 
 for i, row in countries.iterrows():
     country_entry = {
@@ -183,6 +183,7 @@ orders = orders.drop(columns=['customer_name', 'ship_mode', 'order_priority']) #
 orders = orders.dropna(subset=['order_date', 'ship_date']) # Ukloni redove s NaT vrijednostima
 
 # Konvertiraj string datume u Date objekte ako već nisu
+# Iako smo pretvorili u standardni datum, koristimo try-except blok, zato što osigurava da su datumi u ispravnom formatu prije unosa u bazu
 try:
     orders['order_date'] = pd.to_datetime(orders['order_date'])
     orders['ship_date'] = pd.to_datetime(orders['ship_date'])
@@ -205,11 +206,11 @@ order_details = df[['order_id', 'product_id', 'quantity', 'sales', 'discount', '
 # Stvaranje nove liste za detalje narudžbi
 order_details_list = []
 
-for _, row in order_details.iterrows():
+for _, row in order_details.iterrows(): # koristimo underscore _ jer nam ne treba index već sadržaj redka
     # Ako postoji više order_id-ova s istim imenom, uzmi prvi
     order_id = row['order_id']
-    if order_id in order_map and len(order_map[order_id]) > 0:
-        order_fk = order_map[order_id][0]
+    if order_id in order_map and len(order_map[order_id]) > 0: # provjeravamo postoji li order_id iz trenutnog retka u našem order_map rječniku:
+        order_fk = order_map[order_id][0] # Ako narudžba postoji, uzimamo prvi ID iz liste (u slučaju da postoji više narudžbi s istim ID-om)
     else:
         print(f"Upozorenje: order_id {order_id} nije pronađen u bazi")
         continue
@@ -222,6 +223,7 @@ for _, row in order_details.iterrows():
         print(f"Upozorenje: product_id {product_id} nije pronađen u bazi")
         continue
     
+    # Stvaramo rječnik koji predstavlja jedan redak u tablici order_details:
     detail = {
         'order_fk': order_fk,
         'product_fk': product_fk,
