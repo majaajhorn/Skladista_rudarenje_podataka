@@ -43,13 +43,13 @@ df20.to_csv("Skladista_rudarenje_podataka/Checkpoint 2/2_relational_model/proces
 CSV size before:  (51290, 21)
 CSV size after:  (51290, 21)
           order_id order_date  ship_date       ship_mode    customer_name      segment            state    country  ...                 product_name  sales quantity discount   profit shipping_cost  order_priority  year
-0     AG-2011-2040 2011-01-01 2011-01-06  Standard Class  Toby Braunhardt     Consumer      Constantine    Algeria  ...          Tenex Lockers, Blue  408.0        2      0.0  106.140         35.46          Medium  2011
-1    IN-2011-47883 2011-01-01 2011-01-08  Standard Class      Joseph Holt     Consumer  New South Wales  Australia  ...     Acme Trimmer, High Speed  120.0        3      0.1   36.036          9.72          Medium  2011
-2     HU-2011-1220 2011-01-01 2011-01-05    Second Class    Annie Thurman     Consumer         Budapest    Hungary  ...      Tenex Box, Single Width   66.0        4      0.0   29.640          8.17            High  2011
-3  IT-2011-3647632 2011-01-01 2011-01-05    Second Class     Eugene Moren  Home Office        Stockholm     Sweden  ...  Enermax Note Cards, Premium   45.0        3      0.5  -26.055          4.82            High  2011
-4    IN-2011-47883 2011-01-01 2011-01-08  Standard Class      Joseph Holt     Consumer  New South Wales  Australia  ...   Eldon Light Bulb, Duo Pack  114.0        5      0.1   37.770          4.70          Medium  2011
+0     AG-2011-2040 2011-01-01 2011-01-06  Standard Class  Toby Braunhardt     Consumer      Constantine    Algeria  ...          Tenex Lockers, Blue  408.0        2      0.0  106.140         35.46          Medium  2011     
+1    IN-2011-47883 2011-01-01 2011-01-08  Standard Class      Joseph Holt     Consumer  New South Wales  Australia  ...     Acme Trimmer, High Speed  120.0        3      0.1   36.036          9.72          Medium  2011     
+2     HU-2011-1220 2011-01-01 2011-01-05    Second Class    Annie Thurman     Consumer         Budapest    Hungary  ...      Tenex Box, Single Width   66.0        4      0.0   29.640          8.17            High  2011     
+3  IT-2011-3647632 2011-01-01 2011-01-05    Second Class     Eugene Moren  Home Office        Stockholm     Sweden  ...  Enermax Note Cards, Premium   45.0        3      0.5  -26.055          4.82            High  2011     
+4    IN-2011-47883 2011-01-01 2011-01-08  Standard Class      Joseph Holt     Consumer  New South Wales  Australia  ...   Eldon Light Bulb, Duo Pack  114.0        5      0.1   37.770          4.70          Medium  2011     
 
 [5 rows x 21 columns]
-CSV size 80:  (51290, 21)
+CSV size 80:  (41032, 21)
 CSV size 20:  (10258, 21)
 """
