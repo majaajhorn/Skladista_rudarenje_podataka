@@ -3,7 +3,7 @@ import pandas as pd
 # 2. Skripta za predprocesiranje skupa podataka
 
 # Određivanje putanje do CSV datoteke
-CSV_FILE_PATH = "Checkpoint 1\SuperStoreOrders.csv"
+CSV_FILE_PATH = "Skladista_rudarenje_podataka\Checkpoint 1\SuperStoreOrders.csv"
 
 # Učitavanje CSV datoteke, ispis broja redaka i stupaca
 df = pd.read_csv(CSV_FILE_PATH, delimiter=',')
@@ -31,12 +31,12 @@ print(df.head()) # Ispis prvih redaka dataframe-a
 # Random dijeljenje skupa podataka na dva dijela 80:20 (trebat će nam kasnije)
 df20 = df.sample(frac=0.2, random_state=1)
 df80 = df.drop(df20.index)
-print("CSV size 80: ", df.shape)
+print("CSV size 80: ", df80.shape)
 print("CSV size 20: ", df20.shape)
 
 # Spremanje predprocesiranog skupa podataka u novu CSV datoteku
-df80.to_csv("Checkpoint 2/2_relational_model/processed/SuperStoreOrders_PROCESSED_80.csv", index=False) # Spremanje 80% predprocesiranog skupa podataka
-df20.to_csv("Checkpoint 2/2_relational_model/processed/SuperStoreOrders_PROCESSED_20.csv", index=False) # Spremanje 20% skupa podataka u novu CSV datoteku
+df80.to_csv("Skladista_rudarenje_podataka/Checkpoint 2/2_relational_model/processed/SuperStoreOrders_PROCESSED_80.csv", index=False)
+df20.to_csv("Skladista_rudarenje_podataka/Checkpoint 2/2_relational_model/processed/SuperStoreOrders_PROCESSED_20.csv", index=False)
 
 
 """
