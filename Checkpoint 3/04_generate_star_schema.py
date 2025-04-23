@@ -18,7 +18,7 @@ Base = declarative_base()
 
 # Define Dimensional Model Tables
 
-# Dimenzija vremena
+# Dimenzija vremena - hijerahija godina > kvartal > mjesec > dan
 class DimDate(Base):
     __tablename__ = 'dim_date'
     date_tk = Column(Integer, primary_key=True, autoincrement=True)
