@@ -32,6 +32,7 @@ def main():
     # Prvo napuni dimenzijske tablice
     dimension_tables = ["dim_date", "dim_customer", "dim_product", "dim_ship_mode", "dim_order_priority", "dim_order"]
     for table_name in dimension_tables:
+        # osiguravamo da se učitavaju samo one tablice za koje imamo pripremljene podatke
         if table_name in load_ready_dict:
             print(f"📦 Loading dimension table `{table_name}`")
             df = load_ready_dict[table_name]
